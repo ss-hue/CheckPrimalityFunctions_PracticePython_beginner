@@ -1,0 +1,59 @@
+# Practice Python Beginners Exercises
+# Exercise 11: Check Primality Functions.
+# https://www.practicepython.org/exercise/2014/04/16/11-check-primality-functions.html
+
+
+
+
+def primalityCheck():
+   
+    a = int(input("Enter your number here: "))
+    
+    b = []*a
+    
+    count = 0
+    
+    if a != 0:
+    
+        for i in range(1,a):
+            if a % i ==0:
+                count +=1
+                b.append(i)        
+    
+        return (('Your number, {}, is not a prime number. These are its divisors {}').format(a, b) if count > 1 else ('Your number, {}, is a prime number').format(a))
+   
+    else: 
+        return ('{} is not a prime number').format(a)
+        
+        
+        
+#          * Comments *
+#----------------------------------
+
+# Ask the user to type a number
+# Create variable b, an empty list with the size of the number the user typed in.
+
+# Conditional to check if the input number is not '0'(zero). In case it is, we return (or print) a message showing that '0' is not prime. End of program.
+
+# In any other case, we enter into the For Loop that uses range (1, a), in order to check 
+# if the user's number can be divided by any of those numbers between 1 and user's number - 1. 
+# This checking process is made by the conditional operator inside the loop.
+
+# 'count' variable will increment itself whenever there's a divisor within the interval between 1 and user's number - 1
+
+# 'b.append(i)' will store all the numbers that fall under the conditional operator. 
+# This can be useful in order to let the user know which numbers are the divisors. This is just bonus information.
+
+# The return statement inside the loop is build up as a ternary operator in order to save lines of code.
+# Its meaning is to check if the total sum of variable 'count' is greater than 1, i.e, if more than 1 divisor was collected or confirmed. 
+# This will give us a hint that the given number can't be a prime number.
+
+#           *Examples*
+#----------------------------------
+
+# Enter your number here: 4
+# 'Your number, 4, is not a prime number. These are its divisors [1, 2]'
+
+# Enter your number here: 5
+# 'Your number, 5, is a prime number'
+
